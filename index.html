@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Advocacia de Alta Performance - Dr. Arthur Vilela."
+    />
+
+    <!-- Segurança e Performance -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <meta name="robots" content="index, follow" />
+
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="assets/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="assets/favicon/site.webmanifest" />
+
+    <title>Arthur Vilela | Advocacia Digital</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "bg-body": "var(--bg-body)",
+              "bg-surface": "var(--bg-surface)",
+              primary: "var(--primary)",
+              secondary: "var(--secondary)",
+              accent: "var(--accent)",
+              "border-color": "var(--border-color)",
+            },
+            spacing: {
+              "header-h": "var(--header-height)",
+            },
+            borderRadius: {
+              xl: "var(--radius)",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="antialiased">
+    <div
+      class="modal-backdrop fixed inset-0 bg-black/90 backdrop-blur-sm z-[2000] opacity-0 invisible flex items-center justify-center p-4 transition-all duration-300"
+      id="serviceModal"
+    >
+      <div
+        class="modal-window bg-[#1a1a1a] w-full max-w-lg border border-border-color rounded-xl p-6 sm:p-8 relative scale-90 transition-all duration-300 shadow-2xl max-h-[85vh] overflow-y-auto"
+      >
+        <button
+          onclick="closeModal()"
+          class="absolute top-4 right-4 text-secondary hover:text-red-500 transition-colors z-10 p-2"
+        >
+          <i class="bi bi-x-lg text-xl"></i>
+        </button>
+
+        <div class="modal-content-dynamic mt-2">
+          <i
+            class="bi bi-shield-check text-3xl sm:text-4xl text-accent mb-4 sm:mb-5 block modal-icon"
+          ></i>
+
+          <h3
+            class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-primary modal-title"
+          >
+            Título do Serviço
+          </h3>
+          <p
+            class="text-secondary text-sm sm:text-base mb-5 sm:mb-6 leading-relaxed modal-desc"
+          >
+            Descrição detalhada...
+          </p>
+
+          <ul class="space-y-3 mb-6 sm:mb-8 modal-list"></ul>
+
+          <a
+            href="#contact"
+            onclick="closeModal()"
+            class="inline-flex items-center justify-center w-full py-3 sm:py-4 px-6 bg-accent text-black font-bold uppercase text-xs sm:text-sm rounded-xl hover:translate-y-[-2px] hover:shadow-lg transition-transform"
+          >
+            Solicitar Análise
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <header
+      id="header"
+      class="fixed top-0 left-0 w-full h-header-h z-50 transition-all duration-300 flex items-center"
+    >
+      <div class="container mx-auto flex justify-between items-center w-full">
+        <a
+          href="#"
+          class="font-cinzel text-xl sm:text-2xl md:text-3xl font-bold z-[60]"
+          >Arthur <span class="text-accent">Vilela.</span></a
+        >
+
+        <nav class="hidden lg:block">
+          <ul class="flex gap-6 xl:gap-8 items-center">
+            <li>
+              <a
+                href="#hero"
+                class="text-secondary hover:text-white text-sm tracking-wide transition-colors"
+                >Início</a
+              >
+            </li>
+            <li>
+              <a
+                href="#about"
+                class="text-secondary hover:text-white text-sm tracking-wide transition-colors"
+                >Sobre</a
+              >
+            </li>
+            <li>
+              <a
+                href="#services"
+                class="text-secondary hover:text-white text-sm tracking-wide transition-colors"
+                >Atuação</a
+              >
+            </li>
+            <li>
+              <a
+                href="#testimonials"
+                class="text-secondary hover:text-white text-sm tracking-wide transition-colors"
+                >Clientes</a
+              >
+            </li>
+            <li>
+              <a
+                href="#faq"
+                class="text-secondary hover:text-white text-sm tracking-wide transition-colors"
+                >FAQ</a
+              >
+            </li>
+            <li>
+              <a
+                href="#contact"
+                class="px-4 xl:px-5 py-2 border border-color rounded-full text-sm text-white hover:border-accent hover:text-accent transition-colors"
+                >Contato</a
+              >
+            </li>
+          </ul>
+        </nav>
+
+        <button
+          id="mobileToggle"
+          class="lg:hidden text-2xl text-white z-[60] focus:outline-none"
+        >
+          <i class="bi bi-list"></i>
+        </button>
+
+        <div
+          id="navMenu"
+          class="nav-menu fixed top-[0] left-0 w-full h-screen bg-bg-body translate-x-full transition-transform duration-300 z-50 flex flex-col justify-center items-center gap-6 sm:gap-8 lg:hidden pt-20"
+        >
+          <a
+            href="#hero"
+            class="nav-link text-lg sm:text-xl text-white font-cinzel"
+            >Início</a
+          >
+          <a
+            href="#about"
+            class="nav-link text-lg sm:text-xl text-white font-cinzel"
+            >Sobre</a
+          >
+          <a
+            href="#services"
+            class="nav-link text-lg sm:text-xl text-white font-cinzel"
+            >Áreas de Atuação</a
+          >
+          <a
+            href="#testimonials"
+            class="nav-link text-lg sm:text-xl text-white font-cinzel"
+            >Depoimentos</a
+          >
+          <a
+            href="#contact"
+            class="nav-link text-lg sm:text-xl text-accent font-cinzel border border-accent px-8 sm:px-10 py-2 sm:py-3 rounded-full"
+            >Contato</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <section
+      id="hero"
+      class="min-h-screen pb-0 flex items-center relative overflow-hidden"
+    >
+      <div class="hero-bg absolute inset-0 w-full h-full z-[-1]"></div>
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-black/80 to-black/40 z-0"
+      ></div>
+
+      <div
+        class="container mx-auto relative z-10 flex flex-col lg:flex-row items-center lg:items-end gap-8 lg:gap-16 xl:gap-20 justify-between"
+      >
+        <div
+          data-aos="fade-up"
+          class="max-w-2xl text-center lg:text-left pb-8 lg:pb-12"
+        >
+          <span
+            class="text-accent text-[10px] sm:text-xs md:text-sm font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] mb-3 sm:mb-4 block"
+          >
+            Advocacia Digital & Corporativa
+          </span>
+          <h1
+            class="text-3xl sm:text-4xl md:text-5xl lg:text-5xl leading-tight mb-4 sm:mb-6 font-cinzel text-white"
+          >
+            Defesa estratégica<br />para o futuro.
+          </h1>
+          <p
+            class="text-gray-300 text-sm sm:text-base md:text-lg lg:text-xl max-w-xl mb-8 sm:mb-10 leading-relaxed mx-auto lg:mx-0"
+          >
+            Soluções jurídicas personalizadas para proteger seu patrimônio e
+            escalar seus negócios com segurança no ambiente digital.
+          </p>
+          <div
+            class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start"
+          >
+            <a
+              href="#contact"
+              class="inline-flex justify-center items-center py-3 sm:py-4 px-6 sm:px-8 bg-accent text-black font-bold uppercase text-xs sm:text-sm rounded-xl hover:bg-[#e0c396] transition-colors shadow-[0_0_20px_rgba(212,175,55,0.3)]"
+            >
+              Agendar Consultoria
+            </a>
+            <a
+              href="#services"
+              class="inline-flex justify-center items-center py-3 sm:py-4 px-6 sm:px-8 border border-white/20 text-white font-bold uppercase text-xs sm:text-sm rounded-xl hover:bg-white/10 transition-colors"
+            >
+              Nossas Áreas
+            </a>
+          </div>
+        </div>
+        <div class="hero-image-container w-full lg:w-auto lg:flex-shrink-0">
+          <img
+            src="assets/images/advogado01.png"
+            alt="Advogado"
+            data-aos="zoom-in"
+            class="pointer-events-none select-none"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="py-16 sm:py-20 md:py-28 lg:py-32">
+      <div class="container mx-auto">
+        <div
+          class="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16 xl:gap-20 items-center"
+        >
+          <div class="relative" data-aos="fade-right">
+            <div
+              class="absolute -inset-4 bg-accent/20 rounded-xl rotate-3"
+            ></div>
+            <img
+              src="assets/images/advogado02.png"
+              alt="Advogado"
+              class="relative rounded-xl shadow-2xl grayscale hover:grayscale-0 transition-all duration-500 w-full object-cover h-[400px] sm:h-[450px] lg:h-[500px]"
+            />
+          </div>
+
+          <div data-aos="fade-up">
+            <span
+              class="text-accent text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-2 block"
+              >O Especialista</span
+            >
+            <h2
+              class="text-2xl sm:text-3xl md:text-4xl mb-4 sm:mb-6 font-cinzel"
+            >
+              Tradição aliada à Inovação.
+            </h2>
+            <p
+              class="text-secondary text-sm sm:text-base mb-4 sm:mb-6 leading-relaxed"
+            >
+              Dr. Arthur Vilela combina experiência jurídica tradicional com uma
+              visão aguçada para tecnologias emergentes. Especialista em
+              resolver conflitos complexos no ambiente digital.
+            </p>
+            <p
+              class="text-secondary text-sm sm:text-base mb-6 sm:mb-8 leading-relaxed"
+            >
+              Formado pela UFBA, com pós-graduação em Direito Digital pela FGV.
+              Nossa missão é fornecer clareza jurídica, permitindo que sua
+              empresa inove sem riscos desnecessários.
+            </p>
+
+            <div class="border-l-4 border-accent pl-4 sm:pl-6 py-2">
+              <div class="font-cinzel text-lg sm:text-xl text-white font-bold">
+                Dr. Arthur Vilela
+              </div>
+              <div class="text-accent text-xs sm:text-sm mt-1">
+                OAB/BA 45.678 | Especialista em Direito Digital
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mt-16 sm:mt-20 pt-8 sm:pt-10 border-t border-white/10"
+          data-aos="fade-up"
+        >
+          <div class="text-center">
+            <div
+              class="text-2xl sm:text-3xl md:text-4xl font-cinzel text-accent mb-2"
+            >
+              200+
+            </div>
+            <div
+              class="text-[10px] sm:text-xs md:text-sm text-secondary uppercase tracking-wider"
+            >
+              Clientes
+            </div>
+          </div>
+          <div class="text-center">
+            <div
+              class="text-2xl sm:text-3xl md:text-4xl font-cinzel text-accent mb-2"
+            >
+              R$50M
+            </div>
+            <div
+              class="text-[10px] sm:text-xs md:text-sm text-secondary uppercase tracking-wider"
+            >
+              Negócios
+            </div>
+          </div>
+          <div class="text-center">
+            <div
+              class="text-2xl sm:text-3xl md:text-4xl font-cinzel text-accent mb-2"
+            >
+              98%
+            </div>
+            <div
+              class="text-[10px] sm:text-xs md:text-sm text-secondary uppercase tracking-wider"
+            >
+              Sucesso
+            </div>
+          </div>
+          <div class="text-center">
+            <div
+              class="text-2xl sm:text-3xl md:text-4xl font-cinzel text-accent mb-2"
+            >
+              12+
+            </div>
+            <div
+              class="text-[10px] sm:text-xs md:text-sm text-secondary uppercase tracking-wider"
+            >
+              Anos
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="py-20 md:py-32 bg-bg-surface">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16" data-aos="fade-up">
+          <span
+            class="text-accent text-xs font-bold uppercase tracking-widest mb-2 block"
+            >Onde Atuamos</span
+          >
+          <h2 class="text-3xl md:text-4xl font-cinzel">Expertise Completa.</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div
+            class="service-card group bg-bg-body p-8 rounded-xl border border-white/5 hover:border-accent/50 transition-all duration-300 cursor-pointer relative overflow-hidden"
+            data-aos="fade-up"
+            data-title="LGPD & Compliance"
+            data-icon="bi-shield-check"
+            data-desc="Adequação completa à Lei Geral de Proteção de Dados, garantindo que sua empresa evite multas e ganhe confiança."
+            data-list="Mapeamento de Dados;Política de Privacidade;Treinamento de Equipes"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
+            ></div>
+            <i
+              data-aos="fade-up"
+              class="bi bi-shield-check text-4xl text-accent mb-6 block service-icon transition-transform duration-300"
+            ></i>
+            <h3
+              class="text-xl font-bold mb-3 font-cinzel group-hover:text-accent transition-colors"
+            >
+              LGPD & Compliance
+            </h3>
+            <p class="text-secondary text-sm mb-6 leading-relaxed">
+              Proteção de dados e conformidade regulatória para empresas
+              digitais.
+            </p>
+            <span
+              class="text-xs font-bold uppercase text-white flex items-center gap-2 group-hover:gap-4 transition-all"
+              >Ver Detalhes <i class="bi bi-arrow-right text-accent"></i
+            ></span>
+          </div>
+
+          <div
+            class="service-card group bg-bg-body p-8 rounded-xl border border-white/5 hover:border-accent/50 transition-all duration-300 cursor-pointer relative overflow-hidden"
+            data-aos="fade-up"
+            data-title="Direito Corporativo"
+            data-icon="bi-building"
+            data-desc="Estruturação societária robusta para prevenir conflitos e preparar sua empresa para o crescimento, fusões ou vendas."
+            data-list="Acordos de Sócios;Fusões e Aquisições (M&A);Governança Corporativa"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
+            ></div>
+            <i
+              data-aos="fade-up"
+              class="bi bi-building text-4xl text-accent mb-6 block service-icon transition-transform duration-300"
+            ></i>
+            <h3
+              class="text-xl font-bold mb-3 font-cinzel group-hover:text-accent transition-colors"
+            >
+              Direito Corporativo
+            </h3>
+            <p class="text-secondary text-sm mb-6 leading-relaxed">
+              Fusões, aquisições e estruturação de novos negócios.
+            </p>
+            <span
+              class="text-xs font-bold uppercase text-white flex items-center gap-2 group-hover:gap-4 transition-all"
+              >Ver Detalhes <i class="bi bi-arrow-right text-accent"></i
+            ></span>
+          </div>
+
+          <div
+            class="service-card group bg-bg-body p-8 rounded-xl border border-white/5 hover:border-accent/50 transition-all duration-300 cursor-pointer relative overflow-hidden"
+            data-aos="fade-up"
+            data-title="Crimes Digitais"
+            data-icon="bi-laptop"
+            data-desc="Atuação defensiva e consultiva em casos de fraudes eletrônicas, invasão de dispositivos e calúnia no ambiente virtual."
+            data-list="Recuperação de Contas;Combate a Fake News;Rastreamento de Fraudes"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
+            ></div>
+            <i
+              data-aos="fade-up"
+              class="bi bi-laptop text-4xl text-accent mb-6 block service-icon transition-transform duration-300"
+            ></i>
+            <h3
+              class="text-xl font-bold mb-3 font-cinzel group-hover:text-accent transition-colors"
+            >
+              Crimes Digitais
+            </h3>
+            <p class="text-secondary text-sm mb-6 leading-relaxed">
+              Defesa em casos de fraudes e delitos cibernéticos.
+            </p>
+            <span
+              class="text-xs font-bold uppercase text-white flex items-center gap-2 group-hover:gap-4 transition-all"
+              >Ver Detalhes <i class="bi bi-arrow-right text-accent"></i
+            ></span>
+          </div>
+
+          <div
+            class="service-card group bg-bg-body p-8 rounded-xl border border-white/5 hover:border-accent/50 transition-all duration-300 cursor-pointer relative overflow-hidden"
+            data-aos="fade-up"
+            data-title="Startups"
+            data-icon="bi-rocket-takeoff"
+            data-desc="Assessoria jurídica ágil desde a ideação até o exit. Entendemos a velocidade do seu negócio."
+            data-list="Contratos de Vesting;Memorandos (MoU);Investimento Anjo"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
+            ></div>
+            <i
+              data-aos="fade-up"
+              class="bi bi-rocket-takeoff text-4xl text-accent mb-6 block service-icon transition-transform duration-300"
+            ></i>
+            <h3
+              class="text-xl font-bold mb-3 font-cinzel group-hover:text-accent transition-colors"
+            >
+              Startups
+            </h3>
+            <p class="text-secondary text-sm mb-6 leading-relaxed">
+              Vesting, rodadas de investimento e estruturação.
+            </p>
+            <span
+              class="text-xs font-bold uppercase text-white flex items-center gap-2 group-hover:gap-4 transition-all"
+              >Ver Detalhes <i class="bi bi-arrow-right text-accent"></i
+            ></span>
+          </div>
+
+          <div
+            class="service-card group bg-bg-body p-8 rounded-xl border border-white/5 hover:border-accent/50 transition-all duration-300 cursor-pointer relative overflow-hidden"
+            data-aos="fade-up"
+            data-title="Tributário"
+            data-icon="bi-graph-up-arrow"
+            data-desc="Planejamento tributário estratégico para reduzir a carga fiscal de forma lícita e segura."
+            data-list="Elisão Fiscal;Recuperação de Créditos;Holdings"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
+            ></div>
+            <i
+              data-aos="fade-up"
+              class="bi bi-graph-up-arrow text-4xl text-accent mb-6 block service-icon transition-transform duration-300"
+            ></i>
+            <h3
+              class="text-xl font-bold mb-3 font-cinzel group-hover:text-accent transition-colors"
+            >
+              Tributário
+            </h3>
+            <p class="text-secondary text-sm mb-6 leading-relaxed">
+              Otimização fiscal e recuperação de créditos.
+            </p>
+            <span
+              class="text-xs font-bold uppercase text-white flex items-center gap-2 group-hover:gap-4 transition-all"
+              >Ver Detalhes <i class="bi bi-arrow-right text-accent"></i
+            ></span>
+          </div>
+
+          <div
+            class="service-card group bg-bg-body p-8 rounded-xl border border-white/5 hover:border-accent/50 transition-all duration-300 cursor-pointer relative overflow-hidden"
+            data-aos="fade-up"
+            data-title="Propriedade Intelectual"
+            data-icon="bi-r-circle"
+            data-desc="Proteção dos ativos intangíveis mais valiosos da sua empresa: sua marca e suas criações."
+            data-list="Registro de Marcas;Patente de Software;Direitos Autorais"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
+            ></div>
+            <i
+              data-aos="fade-up"
+              class="bi bi-r-circle text-4xl text-accent mb-6 block service-icon transition-transform duration-300"
+            ></i>
+            <h3
+              class="text-xl font-bold mb-3 font-cinzel group-hover:text-accent transition-colors"
+            >
+              Propriedade Intelectual
+            </h3>
+            <p class="text-secondary text-sm mb-6 leading-relaxed">
+              Registro de marcas, patentes e proteção de software.
+            </p>
+            <span
+              class="text-xs font-bold uppercase text-white flex items-center gap-2 group-hover:gap-4 transition-all"
+              >Ver Detalhes <i class="bi bi-arrow-right text-accent"></i
+            ></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials" class="py-20 md:py-32">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-12">
+          <span
+            class="text-accent text-xs font-bold uppercase tracking-widest mb-2 block"
+            >O que dizem</span
+          >
+          <h2 class="text-3xl md:text-4xl font-cinzel">
+            Histórias de Sucesso.
+          </h2>
+        </div>
+
+        <div
+          class="max-w-4xl mx-auto relative bg-bg-surface p-8 md:p-12 rounded-2xl border border-white/5"
+          data-aos="zoom-in"
+        >
+          <i
+            class="bi bi-quote absolute -top-1/2 -bottom-1/2 left-1/2 text-[400px] max-sm:text-[250px] max-sm:bottom-0 max-sm:top-0 -z-10 text-accent/20 text-[#ffffff08] font-serif transform -translate-x-1/2 pointer-events-none select-none"
+          ></i>
+
+          <div class="testimonial-slide active text-center">
+            <p
+              class="text-lg md:text-xl italic text-gray-200 mb-8 leading-relaxed relative z-10"
+            >
+              "A visão estratégica do Dr. Arthur salvou nossa operação durante a
+              fusão. Ele antecipou riscos regulatórios que nem imaginávamos."
+            </p>
+            <div>
+              <h4 class="text-accent font-bold text-lg">Roberto Mendes</h4>
+              <span class="text-sm text-secondary">CEO, TechFin Solutions</span>
+            </div>
+          </div>
+
+          <div class="testimonial-slide text-center hidden">
+            <p
+              class="text-lg md:text-xl italic text-gray-200 mb-8 leading-relaxed relative z-10"
+            >
+              "A adequação à LGPD parecia um pesadelo, mas o escritório tornou o
+              processo simples e eficiente. Recomendo fortemente."
+            </p>
+            <div>
+              <h4 class="text-accent font-bold text-lg">Amanda Souza</h4>
+              <span class="text-sm text-secondary"
+                >Diretora de Dados, InovaRetail</span
+              >
+            </div>
+          </div>
+
+          <div class="testimonial-slide text-center hidden">
+            <p
+              class="text-lg md:text-xl italic text-gray-200 mb-8 leading-relaxed relative z-10"
+            >
+              "Agilidade impressionante nos contratos de Vesting. O entendimento
+              do ecossistema de startups fez toda a diferença."
+            </p>
+            <div>
+              <h4 class="text-accent font-bold text-lg">Carlos Drumond</h4>
+              <span class="text-sm text-secondary">Founder, AppDelivery</span>
+            </div>
+          </div>
+
+          <div class="flex justify-center gap-3 mt-10">
+            <button
+              onclick="showSlide(0)"
+              class="dot w-3 h-3 rounded-full bg-white/20 hover:bg-accent transition-colors active-dot bg-accent"
+            ></button>
+            <button
+              onclick="showSlide(1)"
+              class="dot w-3 h-3 rounded-full bg-white/20 hover:bg-accent transition-colors"
+            ></button>
+            <button
+              onclick="showSlide(2)"
+              class="dot w-3 h-3 rounded-full bg-white/20 hover:bg-accent transition-colors"
+            ></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="py-20 md:py-32">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16" data-aos="fade-up">
+          <span
+            class="text-accent text-xs font-bold uppercase tracking-widest mb-2 block"
+            >Dúvidas Frequentes</span
+          >
+          <h2 class="text-3xl md:text-4xl font-cinzel">
+            Perguntas & Respostas.
+          </h2>
+        </div>
+
+        <div class="max-w-4xl mx-auto space-y-4" data-aos="fade-up">
+          <div
+            class="faq-item bg-bg-surface border border-white/5 rounded-xl overflow-hidden transition-all duration-300"
+          >
+            <button
+              class="faq-question w-full text-left p-6 flex justify-between items-center gap-4 hover:bg-white/5 transition-colors"
+              onclick="toggleFAQ(this)"
+            >
+              <span class="text-white font-semibold text-base md:text-lg"
+                >Quanto custa uma consultoria inicial?</span
+              >
+              <i
+                class="bi bi-plus-lg text-accent text-xl shrink-0 transition-transform duration-300"
+              ></i>
+            </button>
+            <div
+              class="faq-answer max-h-0 overflow-hidden transition-all duration-300"
+            >
+              <div class="p-6 pt-0 text-secondary leading-relaxed">
+                A primeira consulta tem duração de até 1 hora e é oferecida com
+                condições especiais para novos clientes. Durante esse encontro,
+                analisamos seu caso, apresentamos estratégias iniciais e
+                fornecemos um orçamento personalizado para o acompanhamento
+                completo.
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="faq-item bg-bg-surface border border-white/5 rounded-xl overflow-hidden transition-all duration-300"
+          >
+            <button
+              class="faq-question w-full text-left p-6 flex justify-between items-center gap-4 hover:bg-white/5 transition-colors"
+              onclick="toggleFAQ(this)"
+            >
+              <span class="text-white font-semibold text-base md:text-lg"
+                >Vocês atendem startups em estágio inicial?</span
+              >
+              <i
+                class="bi bi-plus-lg text-accent text-xl shrink-0 transition-transform duration-300"
+              ></i>
+            </button>
+            <div
+              class="faq-answer max-h-0 overflow-hidden transition-all duration-300"
+            >
+              <div class="p-6 pt-0 text-secondary leading-relaxed">
+                Sim! Temos experiência com startups desde a fase de ideação até
+                rounds de investimento série B. Oferecemos modelos flexíveis de
+                contratação, incluindo equity e pagamentos recorrentes adaptados
+                ao fluxo de caixa de empresas em crescimento.
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="faq-item bg-bg-surface border border-white/5 rounded-xl overflow-hidden transition-all duration-300"
+          >
+            <button
+              class="faq-question w-full text-left p-6 flex justify-between items-center gap-4 hover:bg-white/5 transition-colors"
+              onclick="toggleFAQ(this)"
+            >
+              <span class="text-white font-semibold text-base md:text-lg"
+                >Quanto tempo leva a adequação à LGPD?</span
+              >
+              <i
+                class="bi bi-plus-lg text-accent text-xl shrink-0 transition-transform duration-300"
+              ></i>
+            </button>
+            <div
+              class="faq-answer max-h-0 overflow-hidden transition-all duration-300"
+            >
+              <div class="p-6 pt-0 text-secondary leading-relaxed">
+                O prazo varia conforme o tamanho da operação e volume de dados
+                processados. Em média, empresas de pequeno porte finalizam em
+                30-45 dias, enquanto corporações podem levar de 2 a 4 meses.
+                Fornecemos um cronograma detalhado após o diagnóstico inicial.
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="faq-item bg-bg-surface border border-white/5 rounded-xl overflow-hidden transition-all duration-300"
+          >
+            <button
+              class="faq-question w-full text-left p-6 flex justify-between items-center gap-4 hover:bg-white/5 transition-colors"
+              onclick="toggleFAQ(this)"
+            >
+              <span class="text-white font-semibold text-base md:text-lg"
+                >Atendem casos fora de Salvador?</span
+              >
+              <i
+                class="bi bi-plus-lg text-accent text-xl shrink-0 transition-transform duration-300"
+              ></i>
+            </button>
+            <div
+              class="faq-answer max-h-0 overflow-hidden transition-all duration-300"
+            >
+              <div class="p-6 pt-0 text-secondary leading-relaxed">
+                Absolutamente. Atendemos clientes em todo o Brasil através de
+                videoconferência, assinatura digital e ferramentas colaborativas
+                seguras. Para casos complexos, realizamos deslocamentos quando
+                necessário. Nosso escritório digital permite agilidade sem
+                fronteiras.
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="faq-item bg-bg-surface border border-white/5 rounded-xl overflow-hidden transition-all duration-300"
+          >
+            <button
+              class="faq-question w-full text-left p-6 flex justify-between items-center gap-4 hover:bg-white/5 transition-colors"
+              onclick="toggleFAQ(this)"
+            >
+              <span class="text-white font-semibold text-base md:text-lg"
+                >Como funciona o atendimento emergencial para crimes
+                digitais?</span
+              >
+              <i
+                class="bi bi-plus-lg text-accent text-xl shrink-0 transition-transform duration-300"
+              ></i>
+            </button>
+            <div
+              class="faq-answer max-h-0 overflow-hidden transition-all duration-300"
+            >
+              <div class="p-6 pt-0 text-secondary leading-relaxed">
+                Nosso plantão 24/7 está disponível via WhatsApp. Casos
+                emergenciais (vazamento de dados, invasões, ataques de
+                ransomware) recebem resposta em até 2 horas. Orientamos as
+                primeiras medidas de contenção imediatamente e iniciamos o
+                processo de documentação para ações judiciais ou policiais.
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="faq-item bg-bg-surface border border-white/5 rounded-xl overflow-hidden transition-all duration-300"
+          >
+            <button
+              class="faq-question w-full text-left p-6 flex justify-between items-center gap-4 hover:bg-white/5 transition-colors"
+              onclick="toggleFAQ(this)"
+            >
+              <span class="text-white font-semibold text-base md:text-lg"
+                >Qual a diferença entre planejamento tributário e elisão
+                fiscal?</span
+              >
+              <i
+                class="bi bi-plus-lg text-accent text-xl shrink-0 transition-transform duration-300"
+              ></i>
+            </button>
+            <div
+              class="faq-answer max-h-0 overflow-hidden transition-all duration-300"
+            >
+              <div class="p-6 pt-0 text-secondary leading-relaxed">
+                São sinônimos na prática. Ambos referem-se à redução legal da
+                carga tributária através de estruturas societárias, regimes
+                especiais e incentivos fiscais previstos em lei. Todo nosso
+                trabalho é 100% dentro da legalidade, com pareceres
+                fundamentados e segurança jurídica completa.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-12" data-aos="fade-up">
+          <p class="text-secondary mb-6">Não encontrou sua resposta?</p>
+          <a
+            href="#contact"
+            class="inline-flex items-center justify-center py-3 px-8 border border-accent text-accent font-bold uppercase text-sm rounded-xl hover:bg-accent hover:text-black transition-all"
+          >
+            Fale Conosco Agora
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="py-20 md:py-32 bg-bg-surface">
+      <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-20">
+          <div class="lg:col-span-2" data-aos="zoom-in">
+            <span
+              class="text-accent text-xs font-bold uppercase tracking-widest mb-2 block max-sm:text-center"
+              >Fale Conosco</span
+            >
+            <h2
+              class="text-3xl md:text-4xl font-cinzel mb-6 max-sm:text-center"
+            >
+              Vamos analisar<br />seu caso.
+            </h2>
+            <p class="text-secondary mb-10 leading-relaxed max-sm:text-center">
+              Disponibilidade imediata para urgências digitais e corporativas.
+            </p>
+
+            <div
+              class="max-sm:space-y-2 max-sm:grid-cols-1 grid max-lg:grid-cols-2 sm:gap-6 max-sm:justify-items-center max-sm:text-center"
+            >
+              <div
+                class="flex items-start border border-b-0 border-x-0 border-t-0 max-sm:border-b max-sm:border-[#ffffff10] max-sm:p-4 max-sm:w-full max-sm:justify-center max-sm:flex-col max-sm:items-center"
+              >
+                <div
+                  class="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center text-accent shrink-0 mt-1"
+                >
+                  <i class="bi bi-geo-alt"></i>
+                </div>
+                <div class="ml-4 max-sm:ml-0">
+                  <h4 class="text-white font-bold text-sm uppercase">
+                    Endereço
+                  </h4>
+                  <p class="text-secondary text-sm mt-1">
+                    Av. Tancredo Neves, 1234, Salvador - BA
+                  </p>
+                </div>
+              </div>
+
+              <div
+                class="flex items-start border border-b-0 border-x-0 border-t-0 max-sm:border-b max-sm:border-[#ffffff10] max-sm:p-4 max-sm:w-full max-sm:justify-center max-sm:flex-col max-sm:items-center"
+              >
+                <div
+                  class="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center text-accent shrink-0 mt-1"
+                >
+                  <i class="bi bi-whatsapp"></i>
+                </div>
+                <div class="ml-4 max-sm:ml-0">
+                  <h4 class="text-white font-bold text-sm uppercase">
+                    WhatsApp
+                  </h4>
+                  <p class="text-secondary text-sm mt-1">+55 (71) 98832-7708</p>
+                </div>
+              </div>
+
+              <div
+                class="flex items-start border border-b-0 border-x-0 border-t-0 max-sm:border-b max-sm:border-[#ffffff10] max-sm:p-4 max-sm:w-full max-sm:justify-center max-sm:flex-col max-sm:items-center"
+              >
+                <div
+                  class="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center text-accent shrink-0 mt-1"
+                >
+                  <i class="bi bi-envelope"></i>
+                </div>
+                <div class="ml-4 max-sm:ml-0">
+                  <h4 class="text-white font-bold text-sm uppercase">Email</h4>
+                  <p class="text-secondary text-sm mt-1">
+                    contato@arthurvilela.adv.br
+                  </p>
+                </div>
+              </div>
+
+              <!-- horário -->
+              <div
+                class="flex items-start border border-b-0 border-x-0 border-t-0 max-sm:border-b max-sm:border-[#ffffff10] max-sm:p-4 max-sm:w-full max-sm:justify-center max-sm:flex-col max-sm:items-center"
+              >
+                <div
+                  class="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center text-accent shrink-0 mt-1"
+                >
+                  <i class="bi bi-clock"></i>
+                </div>
+                <div class="ml-4 max-sm:ml-0">
+                  <h4 class="text-white font-bold text-sm uppercase">
+                    Horário de Atendimento
+                  </h4>
+                  <p class="text-secondary text-sm mt-1">
+                    Segunda a Sexta: 9h às 18h
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="flex gap-4 mt-10 max-sm:justify-center max-sm:gap-4 max-sm:flex-wrap"
+            >
+              <a
+                href="https://linkedin.com/in/rafaelsfront"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center text-white hover:bg-white hover:text-black transition-all"
+                ><i class="bi bi-linkedin"></i
+              ></a>
+              <a
+                href="https://github.com/1faeell"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center text-white hover:bg-white hover:text-black transition-all"
+                ><i class="bi bi-github"></i
+              ></a>
+              <a
+                href="https://instagram.com/fael.front"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center text-white hover:bg-white hover:text-black transition-all"
+                ><i class="bi bi-instagram"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="lg:col-span-3" data-aos="zoom-in">
+            <form
+              class="bg-bg-body p-8 md:p-10 rounded-2xl border border-white/5 shadow-xl"
+            >
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div>
+                  <label
+                    class="text-xs text-secondary uppercase font-bold mb-2 block"
+                    >Nome Completo</label
+                  >
+                  <input
+                    type="text"
+                    class="w-full bg-bg-surface border border-white/10 rounded-lg p-4 text-white focus:border-accent focus:outline-none transition-colors"
+                    placeholder="Digite seu nome"
+                    required
+                    aria-required="true"
+                  />
+                </div>
+                <div>
+                  <label
+                    class="text-xs text-secondary uppercase font-bold mb-2 block"
+                    >Email Corporativo</label
+                  >
+                  <input
+                    type="email"
+                    class="w-full bg-bg-surface border border-white/10 rounded-lg p-4 text-white focus:border-accent focus:outline-none transition-colors"
+                    placeholder="seu@email.com"
+                    required
+                    aria-required="true"
+                  />
+                </div>
+              </div>
+
+              <!-- Telefone tratado -->
+              <div class="mb-6">
+                <label
+                  class="text-xs text-secondary uppercase font-bold mb-2 block"
+                  >Telefone</label
+                >
+                <input
+                  type="tel"
+                  class="w-full bg-bg-surface border border-white/10 rounded-lg p-4 text-white focus:border-accent focus:outline-none transition-colors"
+                  placeholder="(71) 99999-9999"
+                  required
+                  aria-required="true"
+                />
+              </div>
+
+              <!-- seleção de área de atuação -->
+              <div class="mb-6">
+                <label
+                  class="text-xs text-secondary uppercase font-bold mb-2 block"
+                  >Área de Atuação</label
+                >
+                <select
+                  class="w-full bg-bg-surface border border-white/10 rounded-lg p-4 text-white focus:border-accent focus:outline-none transition-colors"
+                  required
+                  aria-required="true"
+                >
+                  <option value="" disabled selected>
+                    Selecione a área de atuação
+                  </option>
+                  <option value="lgpd">LGPD & Compliance</option>
+                  <option value="corporativo">Direito Corporativo</option>
+                  <option value="crimes-digitais">Crimes Digitais</option>
+                  <option value="startups">Startups</option>
+                  <option value="tributario">Tributário</option>
+                  <option value="propriedade-intelectual">
+                    Propriedade Intelectual
+                  </option>
+                </select>
+              </div>
+
+              <div class="mb-6">
+                <label
+                  class="text-xs text-secondary uppercase font-bold mb-2 block"
+                  >Mensagem</label
+                >
+                <textarea
+                  rows="4"
+                  class="w-full bg-bg-surface border border-white/10 rounded-lg p-4 text-white focus:border-accent focus:outline-none transition-colors resize-none"
+                  placeholder="Descreva brevemente sua necessidade..."
+                  required
+                  aria-required="true"
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                class="w-full py-4 bg-accent text-black font-bold uppercase text-sm rounded-lg hover:bg-[#e0c396] transition-colors shadow-lg"
+              >
+                Enviar Solicitação
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="border-t border-white/10 pt-16 pb-8 bg-bg-body text-sm">
+      <div class="container mx-auto px-6">
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-12"
+        >
+          <div>
+            <a href="#" class="font-cinzel text-2xl font-bold block mb-4"
+              >Arthur <span class="text-accent">Vilela.</span></a
+            >
+            <p class="text-secondary leading-relaxed">
+              Advocacia de excelência focada em resultados e inovação jurídica
+              para o mercado moderno.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="text-white font-bold uppercase mb-6 tracking-wider">
+              Navegação
+            </h4>
+            <ul class="space-y-3 text-secondary">
+              <li>
+                <a href="#hero" class="hover:text-accent transition-colors"
+                  >Início</a
+                >
+              </li>
+              <li>
+                <a href="#about" class="hover:text-accent transition-colors"
+                  >Sobre</a
+                >
+              </li>
+              <li>
+                <a href="#services" class="hover:text-accent transition-colors"
+                  >Atuação</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#testimonials"
+                  class="hover:text-accent transition-colors"
+                  >Clientes</a
+                >
+              </li>
+              <li>
+                <a href="#faq" class="hover:text-accent transition-colors"
+                  >FAQ</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="text-white font-bold uppercase mb-6 tracking-wider">
+              Contato
+            </h4>
+            <p class="text-secondary mb-2">
+              Av. Tancredo Neves, 1234, Salvador - BA
+            </p>
+            <p class="text-secondary mb-2">+55 (71) 98832-7708</p>
+            <p class="text-secondary">contato@arthurvilelaadvocacia.com</p>
+
+            <!-- redes sociais -->
+            <div class="flex gap-4 mt-4">
+              <a
+                href="https://linkedin.com/in/rafaelsfront"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-8 h-8 border border-white/20 rounded-full flex items-center justify-center text-white hover:bg-white hover:text-black transition-all"
+                ><i class="bi bi-linkedin"></i
+              ></a>
+              <a
+                href="https://github.com/1faeell"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-8 h-8 border border-white/20 rounded-full flex items-center justify-center text-white hover:bg-white hover:text-black transition-all"
+                ><i class="bi bi-github"></i
+              ></a>
+              <a
+                href="https://instagram.com/fael.front"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-8 h-8 border border-white/20 rounded-full flex items-center justify-center text-white hover:bg-white hover:text-black transition-all"
+                ><i class="bi bi-instagram"></i
+              ></a>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="text-white font-bold uppercase mb-6 tracking-wider">
+              Horários
+            </h4>
+            <p class="text-secondary mb-2">Seg - Sex: 09h às 18h</p>
+            <p class="text-secondary">
+              Atendimento emergencial para crimes digitais 24/7.
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4"
+        >
+          <p class="text-secondary text-center md:text-left">
+            &copy; 2025 Arthur Vilela Advocacia. Todos os direitos reservados.
+          </p>
+          <p class="text-secondary text-center md:text-right">
+            Desenvolvido por
+            <a
+              href="https://portfolio-fael.vercel.app"
+              target="_blank"
+              class="text-accent hover:text-white transition-colors"
+              >Rafael S.</a
+            >
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <a
+      href="https://wa.me/5571988327708"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="fixed bottom-6 right-6 w-14 h-14 bg-[#25d366] text-white rounded-full flex items-center justify-center text-2xl shadow-xl hover:scale-110 hover:shadow-2xl transition-all z-[1000]"
+      target="_blank"
+      aria-label="Falar no WhatsApp"
+    >
+      <i class="bi bi-whatsapp"></i>
+    </a>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

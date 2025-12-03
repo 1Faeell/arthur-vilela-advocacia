@@ -1,0 +1,200 @@
+/* VARIÁVEIS DE TEMA (CSS Variables) */
+:root {
+  --bg-body: #0a0a0a;
+  --bg-surface: #141414;
+  --bg-glass: rgba(20, 20, 20, 0.95);
+  --primary: #ffffff;
+  --secondary: #a3a3a3;
+  --accent: #d4af37;
+  --accent-glow: rgba(212, 175, 55, 0.15);
+  --border-color: rgba(255, 255, 255, 0.08);
+  --header-height: 90px;
+  --radius: 12px;
+}
+
+/* Estilos Base Obrigatórios */
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  background-color: var(--bg-body);
+  color: var(--primary);
+  overflow-x: hidden;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Cinzel", serif;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-body);
+}
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Animações Customizadas que o Tailwind não cobre nativamente */
+.hero-bg {
+  background: url("assets/images/fundo-hero.jpg") center/cover;
+  filter: brightness(0.35) grayscale(100%);
+  animation: zoomIn 20s infinite alternate;
+}
+@keyframes zoomIn {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+
+/* Utilitários Específicos */
+.service-card:hover .service-icon {
+  transform: scale(1.1);
+}
+
+header.scrolled {
+  background: var(--bg-glass);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid var(--border-color);
+  height: 80px;
+}
+
+/* Classes de estado para JS */
+.modal-backdrop.active {
+  opacity: 1;
+  visibility: visible;
+}
+.modal-window.active {
+  transform: scale(1);
+}
+.nav-menu.active {
+  transform: translateX(0);
+}
+.testimonial-slide.active {
+  display: block;
+  animation: fadeIn 0.8s ease;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* MELHORIAS DE RESPONSIVIDADE */
+/* Hero Image - Colada na base */
+.hero-image-container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 100%;
+  min-height: 500px;
+  /* position: relative; */
+}
+
+.hero-image-container img {
+  object-fit: contain;
+  object-position: bottom;
+  max-height: 700px;
+  width: 100%;
+  max-width: 700px;
+  position: absolute;
+  bottom: -150px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Ajustes Mobile */
+@media (max-width: 1024px) {
+  .hero-image-container {
+    min-height: 100px;
+    display: none;
+  }
+
+  .hero-image-container img {
+    max-height: 400px;
+    max-width: 100%;
+    bottom: -100px;
+    left: 0;
+    right: 0;
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-image-container {
+    min-height: 250px;
+  }
+
+  .hero-image-container img {
+    max-height: 350px;
+  }
+}
+
+/* Melhorias de tipografia responsiva */
+@media (max-width: 640px) {
+  h1 {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+  h2 {
+    font-size: 1.75rem;
+  }
+}
+
+/* Container responsivo melhorado */
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1400px;
+  }
+}
