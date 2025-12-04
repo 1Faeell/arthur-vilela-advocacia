@@ -15,6 +15,7 @@
 /* Estilos Base Obrigatórios */
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 body {
   font-family: "Plus Jakarta Sans", sans-serif;
