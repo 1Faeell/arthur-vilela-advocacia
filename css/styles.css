@@ -46,9 +46,8 @@ h4 {
 
 /* Animações Customizadas que o Tailwind não cobre nativamente */
 .hero-bg {
-  background: url("assets/images/fundo-hero.jpg") center/cover;
-  filter: brightness(0.35) grayscale(100%);
-  animation: zoomIn 20s infinite alternate;
+  background: url("../assets/images/fundo-hero.jpg") center/cover;
+  filter: brightness(0.4) grayscale(100%);
 }
 @keyframes zoomIn {
   from {
@@ -86,6 +85,7 @@ header.scrolled {
   display: block;
   animation: fadeIn 0.8s ease;
 }
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -116,8 +116,20 @@ header.scrolled {
   max-width: 700px;
   position: absolute;
   bottom: -150px;
-  left: 50%;
+  left: 45%;
   transform: translateX(-50%);
+}
+
+#icone-zap {
+  animation: zoomIn 2s infinite alternate;
+}
+
+@media (min-height: 768px) {
+  .hero-image-container img {
+    max-height: 800px;
+    max-width: 800px;
+    bottom: -250px;
+  }
 }
 
 /* Ajustes Mobile */
