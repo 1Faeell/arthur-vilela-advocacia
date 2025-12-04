@@ -1,4 +1,4 @@
-# arthur vilela | advocacia digital
+# ⚖ Arthur Vilela | Advocacia Digital
 
 Website Landing Page moderno, responsivo e performático para escritório de advocacia especializado em direito digital, corporativo e inovação jurídica.
 
